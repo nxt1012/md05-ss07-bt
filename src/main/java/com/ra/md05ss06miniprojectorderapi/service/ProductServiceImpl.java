@@ -3,6 +3,8 @@ package com.ra.md05ss06miniprojectorderapi.service;
 import com.ra.md05ss06miniprojectorderapi.entity.Product;
 import com.ra.md05ss06miniprojectorderapi.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,7 +25,7 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public Product save(Product product) {
+    public Product create(Product product) {
         return productRepository.save(product);
     }
 
@@ -53,5 +55,10 @@ public class ProductServiceImpl implements ProductService{
             return true;
         }
         return false;
+    }
+
+    @Override
+    public Page<Product> findProductsByKeyword(String searchTerm, Pageable pageable) {
+        return null;
     }
 }
